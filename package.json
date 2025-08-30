@@ -1,0 +1,8 @@
+{
+  "name": "one-shop",
+  "version": "1.0.0",
+  "description": "Optima Shop Business Plan",
+  "scripts": {
+    "build": "echo 'Static HTML site, no build required'"
+  }
+}
