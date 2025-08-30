@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gadget Lab - Investor Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Title Slide */
+        .title-slide {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 80px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00ff88, #00a8ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+        
+        .tagline {
+            font-size: 28px;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 60px;
+        }
+        
+        .pitch-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .pitch-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Problem Slide */
+        .problem-slide {
+            background: linear-gradient(135deg, #1a0000 0%, #2a0a0a 100%);
+        }
+        
+        .slide-title {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            background: linear-gradient(90deg, #ff3333, #ff6666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .problem-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ff6666;
+        }
+        
+        .problem-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        /* Solution Slide */
+        .solution-slide {
+            background: linear-gradient(135deg, #001a0a 0%, #002a1a 100%);
+        }
+        
+        .solution-title {
+            background: linear-gradient(90deg, #00ff88, #00cc66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .solution-visual {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 60px 0;
+        }
+        
+        .supply-side, .demand-side {
+            text-align: center;
+        }
+        
+        .side-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+        
+        .side-items {
+            list-style: none;
+            font-size: 16px;
+            line-height: 2;
+            color: #999;
+        }
+        
+        .platform-center {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            color: #000;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
+        }
+        
+        .platform-center h3 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .feature-tag {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Market Slide */
+        .market-slide {
+            background: linear-gradient(135deg, #1a1a0a 0%, #2a2a1a 100%);
+        }
+        
+        .market-title {
+            background: linear-gradient(90deg, #ffaa00, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 170, 0, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ffaa00, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+        
+        .stat-detail {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Business Model Slide */
+        .model-slide {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+        }
+        
+        .model-title {
+            background: linear-gradient(90deg, #00a8ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .revenue-streams {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .revenue-card {
+            background: rgba(0, 168, 255, 0.1);
+            border: 1px solid rgba(0, 168, 255, 0.3);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .revenue-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 168, 255, 0.2);
+        }
+        
+        .revenue-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .revenue-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #00a8ff;
+            margin-bottom: 10px;
+        }
+        
+        .revenue-percent {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .revenue-desc {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Traction Slide */
+        .traction-slide {
+            background: linear-gradient(135deg, #1a0a1a 0%, #2a1a2a 100%);
+        }
+        
+        .traction-title {
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #a855f7, #7c3aed);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 30px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            margin: 0 40px;
+        }
+        
+        .timeline-date {
+            font-size: 14px;
+            color: #a855f7;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-metrics {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        .metric {
+            font-size: 20px;
+            font-weight: 600;
+            color: #a855f7;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Team Slide */
+        .team-slide {
+            background: linear-gradient(135deg, #0a1a1a 0%, #1a2a2a 100%);
+        }
+        
+        .team-title {
+            background: linear-gradient(90deg, #00ff88, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff88, #00a8ff);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        
+        .member-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            font-size: 16px;
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        /* Competition Slide */
+        .competition-slide {
+            background: linear-gradient(135deg, #1a1a0a 0%, #2a2a1a 100%);
+        }
+        
+        .competition-title {
+            background: linear-gradient(90deg, #ff6600, #ff3333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+        }
+        
+        .comparison-table th {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+            font-weight: 600;
+            text-align: left;
+        }
+        
+        .comparison-table th:first-child {
+            border-radius: 12px 0 0 0;
+        }
+        
+        .comparison-table th:last-child {
+            border-radius: 0 12px 0 0;
+            background: linear-gradient(135deg, #00ff88, #00cc66);
+            color: #000;
+        }
+        
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 16px;
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .check {
+            color: #00ff88;
+            font-size: 20px;
+        }
+        
+        .cross {
+            color: #ff3333;
+            font-size: 20px;
+        }
+        
+        /* Financial Slide */
+        .financial-slide {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+        }
+        
+        .financial-title {
+            background: linear-gradient(90deg, #00ff88, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .financial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 60px 0;
+        }
+        
+        .projection-chart {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .chart-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+        
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 200px;
+            margin: 30px 0;
+        }
+        
+        .bar {
+            flex: 1;
+            background: linear-gradient(180deg, #00ff88, #00cc66);
+            margin: 0 5px;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .bar:hover {
+            background: linear-gradient(180deg, #00ffaa, #00ff88);
+        }
+        
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: 600;
+            color: #00ff88;
+        }
+        
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .metric-box {
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+        
+        .metric-name {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Ask Slide */
+        .ask-slide {
+            background: linear-gradient(135deg, #1a0a1a 0%, #2a1a2a 100%);
+        }
+        
+        .ask-title {
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .funding-box {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            margin: 40px 0;
+            color: white;
+        }
+        
+        .funding-amount {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .funding-stage {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .use-of-funds {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .fund-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .fund-percentage {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .fund-category {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .fund-details {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+        }
+        
+        /* Contact Slide */
+        .contact-slide {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            text-align: center;
+        }
+        
+        .thank-you {
+            font-size: 72px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00ff88, #00a8ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info {
+            font-size: 20px;
+            line-height: 2;
+            color: #999;
+        }
+        
+        .contact-info a {
+            color: #00ff88;
+            text-decoration: none;
+            border-bottom: 1px solid #00ff88;
+        }
+        
+        .contact-info a:hover {
+            color: #00ffaa;
+            border-color: #00ffaa;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 20px 60px;
+            background: linear-gradient(90deg, #00ff88, #00a8ff);
+            color: #000;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+            }
+            
+            .logo {
+                font-size: 48px;
+            }
+            
+            .slide-title {
+                font-size: 36px;
+            }
+            
+            .problem-grid,
+            .market-stats,
+            .revenue-streams,
+            .team-grid,
+            .financial-grid,
+            .use-of-funds {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-visual {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                margin-left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <section class="slide title-slide">
+        <div class="slide-content">
+            <h1 class="logo">AI Gadget Lab</h1>
+            <p class="tagline">The Curated Marketplace for AI-Powered Hardware</p>
+            <div class="pitch-meta">
+                <span>💰 Raising $2M Seed</span>
+                <span>🚀 Launch Q4 2025</span>
+                <span>🎯 $100B+ TAM</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Problem -->
+    <section class="slide problem-slide">
+        <div class="slide-content">
+            <h2 class="slide-title">The Problem</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😵</div>
+                    <h3 class="problem-title">Discovery Nightmare</h3>
+                    <p class="problem-desc">
+                        AI hardware is scattered across Amazon, Kickstarter, and random websites. 
+                        Consumers spend hours researching, often ending up with disappointing products.
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3 class="problem-title">Trust Deficit</h3>
+                    <p class="problem-desc">
+                        After Humane AI Pin ($699) and Rabbit R1 ($200) failures, 
+                        consumers are skeptical. They need a trusted curator.
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🐌</div>
+                    <h3 class="problem-title">Poor Experience</h3>
+                    <p class="problem-desc">
+                        Long shipping from China (3-4 weeks), no returns, 
+                        poor customer service, and no real product reviews.
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🎲</div>
+                    <h3 class="problem-title">Quality Lottery</h3>
+                    <p class="problem-desc">
+                        85% of AI gadgets on Amazon are low-quality white-label products. 
+                        Finding the gems requires expertise consumers don't have.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Solution -->
+    <section class="slide solution-slide">
+        <div class="slide-content">
+            <h2 class="slide-title solution-title">Our Solution</h2>
+            <div class="solution-visual">
+                <div class="supply-side">
+                    <h3 class="side-title">Supply Side</h3>
+                    <ul class="side-items">
+                        <li>🏭 Shenzhen Factories</li>
+                        <li>📦 1000+ AI Products</li>
+                        <li>💰 50-70% Cost Advantage</li>
+                        <li>🚀 Weekly New Products</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-center">
+                    <h3>AI Gadget Lab</h3>
+                    <p style="margin-bottom: 20px;">Curated AI Hardware Marketplace</p>
+                    <div class="platform-features">
+                        <div class="feature-tag">✅ Quality Testing</div>
+                        <div class="feature-tag">📹 Video Reviews</div>
+                        <div class="feature-tag">🚚 2-Day US Shipping</div>
+                        <div class="feature-tag">💬 Expert Support</div>
+                        <div class="feature-tag">🔄 30-Day Returns</div>
+                        <div class="feature-tag">⭐ User Ratings</div>
+                        <div class="feature-tag">🎯 AI Matching</div>
+                        <div class="feature-tag">💡 Setup Guides</div>
+                    </div>
+                </div>
+                
+                <div class="demand-side">
+                    <h3 class="side-title">Demand Side</h3>
+                    <ul class="side-items">
+                        <li>👨‍💻 Tech Early Adopters</li>
+                        <li>🎮 13M+ AI Enthusiasts</li>
+                        <li>💼 Business Professionals</li>
+                        <li>🎓 Students & Educators</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Market Opportunity -->
+    <section class="slide market-slide">
+        <div class="slide-content">
+            <h2 class="slide-title market-title">Market Opportunity</h2>
+            <div class="market-stats">
+                <div class="stat-card">
+                    <div class="stat-number">$66.8B</div>
+                    <div class="stat-label">AI Hardware Market 2025</div>
+                    <div class="stat-detail">Growing at 31.2% CAGR<br>Expected to reach $296B by 2034</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">13M+</div>
+                    <div class="stat-label">Target Customers in US</div>
+                    <div class="stat-detail">Tech early adopters actively seeking AI products</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$150</div>
+                    <div class="stat-label">Average Order Value</div>
+                    <div class="stat-detail">50-60% gross margin on curated products</div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255, 170, 0, 0.1); border: 1px solid rgba(255, 170, 0, 0.3); border-radius: 20px; padding: 30px; text-align: center; margin-top: 40px;">
+                <h3 style="font-size: 28px; margin-bottom: 20px; color: #ffaa00;">Why Now?</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: left;">
+                    <div>
+                        <strong style="color: #ffaa00;">🎯 Market Timing</strong>
+                        <p style="color: #999; margin-top: 10px;">AI hardware hitting mainstream adoption curve</p>
+                    </div>
+                    <div>
+                        <strong style="color: #ffaa00;">📱 Consumer Ready</strong>
+                        <p style="color: #999; margin-top: 10px;">ChatGPT has 200M+ users seeking AI products</p>
+                    </div>
+                    <div>
+                        <strong style="color: #ffaa00;">🏭 Supply Mature</strong>
+                        <p style="color: #999; margin-top: 10px;">Shenzhen ecosystem producing quality AI hardware</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Business Model -->
+    <section class="slide model-slide">
+        <div class="slide-content">
+            <h2 class="slide-title model-title">Revenue Model</h2>
+            <div class="revenue-streams">
+                <div class="revenue-card">
+                    <div class="revenue-icon">🛒</div>
+                    <div class="revenue-name">Product Sales</div>
+                    <div class="revenue-percent">70%</div>
+                    <div class="revenue-desc">Direct sales with 50-60% margins</div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">🔄</div>
+                    <div class="revenue-name">Subscriptions</div>
+                    <div class="revenue-percent">15%</div>
+                    <div class="revenue-desc">Premium support & early access</div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">🤝</div>
+                    <div class="revenue-name">B2B Sales</div>
+                    <div class="revenue-percent">10%</div>
+                    <div class="revenue-desc">Corporate bulk orders</div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">📢</div>
+                    <div class="revenue-name">Affiliate</div>
+                    <div class="revenue-percent">5%</div>
+                    <div class="revenue-desc">Commissions & sponsored reviews</div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(0, 168, 255, 0.1); border: 1px solid rgba(0, 168, 255, 0.3); border-radius: 20px; padding: 40px; margin-top: 40px;">
+                <h3 style="font-size: 24px; margin-bottom: 25px; color: #00a8ff; text-align: center;">Unit Economics</h3>
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; text-align: center;">
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #fff;">$150</div>
+                        <div style="font-size: 14px; color: #999;">AOV</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #fff;">$60</div>
+                        <div style="font-size: 14px; color: #999;">COGS</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #fff;">$25</div>
+                        <div style="font-size: 14px; color: #999;">CAC</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #00ff88;">$65</div>
+                        <div style="font-size: 14px; color: #999;">Profit/Order</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #00ff88;">43%</div>
+                        <div style="font-size: 14px; color: #999;">Net Margin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Traction & Roadmap -->
+    <section class="slide traction-slide">
+        <div class="slide-content">
+            <h2 class="slide-title traction-title">Traction & Roadmap</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Q3 2025 - Validation</div>
+                        <h3 class="timeline-title">Market Research & MVP</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">500+</div>
+                                <div class="metric-label">Survey Responses</div>
+                            </div>
+                            <div>
+                                <div class="metric">20</div>
+                                <div class="metric-label">Products Tested</div>
+                            </div>
+                            <div>
+                                <div class="metric">$50K</div>
+                                <div class="metric-label">Pre-orders</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Q4 2025 - Launch</div>
+                        <h3 class="timeline-title">Platform Launch</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">100</div>
+                                <div class="metric-label">Curated Products</div>
+                            </div>
+                            <div>
+                                <div class="metric">$200K</div>
+                                <div class="metric-label">Monthly GMV</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Q2 2026 - Scale</div>
+                        <h3 class="timeline-title">Series A Ready</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">$1M</div>
+                                <div class="metric-label">Monthly Revenue</div>
+                            </div>
+                            <div>
+                                <div class="metric">50K</div>
+                                <div class="metric-label">Active Users</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2027 - Vision</div>
+                        <h3 class="timeline-title">Category Leader</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">$100M</div>
+                                <div class="metric-label">Annual Revenue</div>
+                            </div>
+                            <div>
+                                <div class="metric">1M+</div>
+                                <div class="metric-label">Customers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Team -->
+    <section class="slide team-slide">
+        <div class="slide-content">
+            <h2 class="slide-title team-title">The Team</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin: 60px 0;">
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">Hao Xu</h3>
+                    <p class="member-role">CEO & Co-Founder</p>
+                    <p class="member-bio">
+                        • Serial entrepreneur, tech background<br>
+                        • 10+ years in AI & e-commerce<br>
+                        • Shenzhen Huaqiangbei network<br>
+                        • Strategic planning & tech architecture
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">Kai Xu</h3>
+                    <p class="member-role">COO & Co-Founder</p>
+                    <p class="member-bio">
+                        • E-commerce operations expert<br>
+                        • User growth & retention specialist<br>
+                        • Customer service system builder<br>
+                        • Daily operations management
+                    </p>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 60px 0;">
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">Heran Hao</h3>
+                    <p class="member-role">Head of Marketing</p>
+                    <p class="member-bio">
+                        • Brand marketing expert<br>
+                        • Social media guru<br>
+                        • TikTok/YouTube growth<br>
+                        • Content & brand building
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">Liming Zhang</h3>
+                    <p class="member-role">Head of Supply Chain</p>
+                    <p class="member-bio">
+                        • 10+ years Huaqiangbei experience<br>
+                        • Expert in AI hardware sourcing<br>
+                        • Manages 100+ supplier network<br>
+                        • Product selection & quality control
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">Uncle Jian</h3>
+                    <p class="member-role">US Operations Lead</p>
+                    <p class="member-bio">
+                        • US warehouse & logistics resources<br>
+                        • 15+ years US e-commerce<br>
+                        • Target & offline channel connections<br>
+                        • 2-day delivery fulfillment
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px; margin-top: 40px; text-align: center;">
+                <h3 style="font-size: 24px; margin-bottom: 20px;">Support Team</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div>
+                        <strong>Tech Team</strong>
+                        <p style="color: #999; font-size: 14px;">5 AI Engineers</p>
+                    </div>
+                    <div>
+                        <strong>Customer Support</strong>
+                        <p style="color: #999; font-size: 14px;">3 US-based agents</p>
+                    </div>
+                    <div>
+                        <strong>QC Team</strong>
+                        <p style="color: #999; font-size: 14px;">2 in Shenzhen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Competition -->
+    <section class="slide competition-slide">
+        <div class="slide-content">
+            <h2 class="slide-title competition-title">Competitive Advantage</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Amazon</th>
+                        <th>Gadget Flow</th>
+                        <th>Brand Sites</th>
+                        <th>AI Gadget Lab</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AI Focus</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Curation</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Expert Reviews</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>2-Day US Shipping</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Price Advantage</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>AI Support</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Community</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 40px; padding: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 20px;">
+                <h3 style="font-size: 24px; margin-bottom: 20px; color: #00ff88;">Our Moat</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div>
+                        <strong style="color: #00ff88;">🏭 Supply Chain Lock-in</strong>
+                        <p style="color: #999; margin-top: 10px;">Exclusive partnerships with top 20 Shenzhen AI hardware manufacturers</p>
+                    </div>
+                    <div>
+                        <strong style="color: #00ff88;">📊 Data Advantage</strong>
+                        <p style="color: #999; margin-top: 10px;">Proprietary AI product performance database from testing 1000+ products</p>
+                    </div>
+                    <div>
+                        <strong style="color: #00ff88;">🎯 Brand Trust</strong>
+                        <p style="color: #999; margin-top: 10px;">First-mover in curated AI hardware, becoming the default choice</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Financial Projections -->
+    <section class="slide financial-slide">
+        <div class="slide-content">
+            <h2 class="slide-title financial-title">Financial Projections</h2>
+            <div class="financial-grid">
+                <div class="projection-chart">
+                    <h3 class="chart-title">Revenue Growth ($ Millions)</h3>
+                    <div class="chart-bars">
+                        <div class="bar" style="height: 20%;">
+                            <span class="bar-value">$2.4M</span>
+                            <span class="bar-label">2025</span>
+                        </div>
+                        <div class="bar" style="height: 50%;">
+                            <span class="bar-value">$12M</span>
+                            <span class="bar-label">2026</span>
+                        </div>
+                        <div class="bar" style="height: 80%;">
+                            <span class="bar-value">$36M</span>
+                            <span class="bar-label">2027</span>
+                        </div>
+                        <div class="bar" style="height: 100%;">
+                            <span class="bar-value">$75M</span>
+                            <span class="bar-label">2028</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 24px; margin-bottom: 30px; color: #00ff88;">Key Metrics by 2027</h3>
+                    <div class="key-metrics">
+                        <div class="metric-box">
+                            <div class="metric-value">$36M</div>
+                            <div class="metric-name">Annual Revenue</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">240K</div>
+                            <div class="metric-name">Active Customers</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">55%</div>
+                            <div class="metric-name">Gross Margin</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">25%</div>
+                            <div class="metric-name">EBITDA Margin</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                        <h4 style="font-size: 18px; margin-bottom: 15px;">Path to Profitability</h4>
+                        <ul style="list-style: none; color: #999; line-height: 1.8;">
+                            <li>✓ Positive unit economics from Day 1</li>
+                            <li>✓ Break-even at Month 18</li>
+                            <li>✓ 25% EBITDA margins by Year 3</li>
+                            <li>✓ Capital efficient growth model</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: The Ask -->
+    <section class="slide ask-slide">
+        <div class="slide-content">
+            <h2 class="slide-title ask-title">Investment Opportunity</h2>
+            
+            <div class="funding-box">
+                <div class="funding-amount">$2 Million</div>
+                <div class="funding-stage">Seed Round</div>
+            </div>
+            
+            <div class="use-of-funds">
+                <div class="fund-item">
+                    <div class="fund-percentage">35%</div>
+                    <div class="fund-category">Inventory</div>
+                    <div class="fund-details">Initial product stock & US warehousing</div>
+                </div>
+                <div class="fund-item">
+                    <div class="fund-percentage">30%</div>
+                    <div class="fund-category">Marketing</div>
+                    <div class="fund-details">Customer acquisition & brand building</div>
+                </div>
+                <div class="fund-item">
+                    <div class="fund-percentage">25%</div>
+                    <div class="fund-category">Technology</div>
+                    <div class="fund-details">Platform development & AI tools</div>
+                </div>
+                <div class="fund-item">
+                    <div class="fund-percentage">10%</div>
+                    <div class="fund-category">Team</div>
+                    <div class="fund-details">Key hires in engineering & operations</div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1)); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 20px; padding: 40px; margin-top: 40px; text-align: center;">
+                <h3 style="font-size: 28px; margin-bottom: 25px;">Expected Returns</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #a855f7;">10x</div>
+                        <div style="color: #999;">Target Return</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #a855f7;">2027</div>
+                        <div style="color: #999;">Series B/Exit</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #a855f7;">$200M+</div>
+                        <div style="color: #999;">Target Valuation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: Contact -->
+    <section class="slide contact-slide">
+        <div class="slide-content">
+            <h2 class="thank-you">Thank You</h2>
+            <div class="contact-info">
+                <p>Let's Build the Future of AI Hardware Commerce Together</p>
+                <p style="margin-top: 30px;">
+                    📧 <a href="mailto:invest@one.optima.shop">invest@one.optima.shop</a><br>
+                    📱 +1 (555) 123-4567<br>
+                    🌐 <a href="https://one.optima.shop">one.optima.shop</a>
+                </p>
+            </div>
+            <a href="mailto:invest@one.optima.shop" class="cta-button">Schedule a Meeting</a>
+        </div>
+    </section>
+
+    <script>
+        // Simple scroll indicator
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        // Add slide indicators
+        const indicators = document.createElement('div');
+        indicators.style.cssText = 'position: fixed; right: 30px; top: 50%; transform: translateY(-50%); z-index: 100;';
+        
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.style.cssText = `width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); margin: 10px 0; cursor: pointer; transition: all 0.3s;`;
+            dot.onclick = () => {
+                slides[index].scrollIntoView({ behavior: 'smooth' });
+            };
+            indicators.appendChild(dot);
+        });
+        
+        document.body.appendChild(indicators);
+        
+        // Update active indicator
+        const updateIndicators = () => {
+            const scrollPos = window.scrollY;
+            const windowHeight = window.innerHeight;
+            currentSlide = Math.round(scrollPos / windowHeight);
+            
+            indicators.childNodes.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.style.background = 'linear-gradient(90deg, #00ff88, #00a8ff)';
+                    dot.style.transform = 'scale(1.5)';
+                } else {
+                    dot.style.background = 'rgba(255,255,255,0.3)';
+                    dot.style.transform = 'scale(1)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', updateIndicators);
+        updateIndicators();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI极客实验室 - 商业计划书</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Title Slide */
+        .title-slide {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 80px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00ff88, #00a8ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+        
+        .tagline {
+            font-size: 28px;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 60px;
+        }
+        
+        .pitch-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .pitch-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Problem Slide */
+        .problem-slide {
+            background: linear-gradient(135deg, #1a0000 0%, #2a0a0a 100%);
+        }
+        
+        .slide-title {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            background: linear-gradient(90deg, #ff3333, #ff6666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .problem-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ff6666;
+        }
+        
+        .problem-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        /* Solution Slide */
+        .solution-slide {
+            background: linear-gradient(135deg, #001a0a 0%, #002a1a 100%);
+        }
+        
+        .solution-title {
+            background: linear-gradient(90deg, #00ff88, #00cc66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .solution-visual {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 60px 0;
+        }
+        
+        .supply-side, .demand-side {
+            text-align: center;
+        }
+        
+        .side-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+        
+        .side-items {
+            list-style: none;
+            font-size: 16px;
+            line-height: 2;
+            color: #999;
+        }
+        
+        .platform-center {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            color: #000;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
+        }
+        
+        .platform-center h3 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .feature-tag {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Market Slide */
+        .market-slide {
+            background: linear-gradient(135deg, #1a1a0a 0%, #2a2a1a 100%);
+        }
+        
+        .market-title {
+            background: linear-gradient(90deg, #ffaa00, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 170, 0, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ffaa00, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+        
+        .stat-detail {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Business Model Slide */
+        .model-slide {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+        }
+        
+        .model-title {
+            background: linear-gradient(90deg, #00a8ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .revenue-streams {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .revenue-card {
+            background: rgba(0, 168, 255, 0.1);
+            border: 1px solid rgba(0, 168, 255, 0.3);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .revenue-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 168, 255, 0.2);
+        }
+        
+        .revenue-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .revenue-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #00a8ff;
+            margin-bottom: 10px;
+        }
+        
+        .revenue-percent {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .revenue-desc {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Traction Slide */
+        .traction-slide {
+            background: linear-gradient(135deg, #1a0a1a 0%, #2a1a2a 100%);
+        }
+        
+        .traction-title {
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #a855f7, #7c3aed);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 30px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            margin: 0 40px;
+        }
+        
+        .timeline-date {
+            font-size: 14px;
+            color: #a855f7;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-metrics {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        .metric {
+            font-size: 20px;
+            font-weight: 600;
+            color: #a855f7;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Team Slide */
+        .team-slide {
+            background: linear-gradient(135deg, #0a1a1a 0%, #1a2a2a 100%);
+        }
+        
+        .team-title {
+            background: linear-gradient(90deg, #00ff88, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff88, #00a8ff);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        
+        .member-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            font-size: 16px;
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        /* Competition Slide */
+        .competition-slide {
+            background: linear-gradient(135deg, #1a1a0a 0%, #2a2a1a 100%);
+        }
+        
+        .competition-title {
+            background: linear-gradient(90deg, #ff6600, #ff3333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+        }
+        
+        .comparison-table th {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+            font-weight: 600;
+            text-align: left;
+        }
+        
+        .comparison-table th:first-child {
+            border-radius: 12px 0 0 0;
+        }
+        
+        .comparison-table th:last-child {
+            border-radius: 0 12px 0 0;
+            background: linear-gradient(135deg, #00ff88, #00cc66);
+            color: #000;
+        }
+        
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 16px;
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .check {
+            color: #00ff88;
+            font-size: 20px;
+        }
+        
+        .cross {
+            color: #ff3333;
+            font-size: 20px;
+        }
+        
+        /* Financial Slide */
+        .financial-slide {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+        }
+        
+        .financial-title {
+            background: linear-gradient(90deg, #00ff88, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .financial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 60px 0;
+        }
+        
+        .projection-chart {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .chart-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+        
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 200px;
+            margin: 30px 0;
+        }
+        
+        .bar {
+            flex: 1;
+            background: linear-gradient(180deg, #00ff88, #00cc66);
+            margin: 0 5px;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .bar:hover {
+            background: linear-gradient(180deg, #00ffaa, #00ff88);
+        }
+        
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: 600;
+            color: #00ff88;
+            white-space: nowrap;
+        }
+        
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .metric-box {
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+        
+        .metric-name {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Ask Slide */
+        .ask-slide {
+            background: linear-gradient(135deg, #1a0a1a 0%, #2a1a2a 100%);
+        }
+        
+        .ask-title {
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .funding-box {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            margin: 40px 0;
+            color: white;
+        }
+        
+        .funding-amount {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .funding-stage {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .use-of-funds {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .fund-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .fund-percentage {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .fund-category {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .fund-details {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+        }
+        
+        /* Contact Slide */
+        .contact-slide {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            text-align: center;
+        }
+        
+        .thank-you {
+            font-size: 72px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00ff88, #00a8ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info {
+            font-size: 20px;
+            line-height: 2;
+            color: #999;
+        }
+        
+        .contact-info a {
+            color: #00ff88;
+            text-decoration: none;
+            border-bottom: 1px solid #00ff88;
+        }
+        
+        .contact-info a:hover {
+            color: #00ffaa;
+            border-color: #00ffaa;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 20px 60px;
+            background: linear-gradient(90deg, #00ff88, #00a8ff);
+            color: #000;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+            }
+            
+            .logo {
+                font-size: 48px;
+            }
+            
+            .slide-title {
+                font-size: 36px;
+            }
+            
+            .problem-grid,
+            .market-stats,
+            .revenue-streams,
+            .team-grid,
+            .financial-grid,
+            .use-of-funds {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-visual {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                margin-left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: 封面 -->
+    <section class="slide title-slide">
+        <div class="slide-content">
+            <h1 class="logo">AI极客实验室</h1>
+            <p class="tagline">精选AI硬件聚合电商平台</p>
+            <div class="pitch-meta">
+                <span>💰 融资200万美元种子轮</span>
+                <span>🚀 2025年Q4上线</span>
+                <span>🎯 千亿美元市场</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: 问题 -->
+    <section class="slide problem-slide">
+        <div class="slide-content">
+            <h2 class="slide-title">市场痛点</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😵</div>
+                    <h3 class="problem-title">发现困难</h3>
+                    <p class="problem-desc">
+                        AI硬件产品散落在Amazon、Kickstarter、独立网站等各处。
+                        消费者需要花费大量时间研究，最终买到的产品往往令人失望。
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3 class="problem-title">信任缺失</h3>
+                    <p class="problem-desc">
+                        Humane AI Pin（$699）和Rabbit R1（$200）相继失败后，
+                        消费者对AI硬件心存疑虑，亟需可信赖的筛选平台。
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🐌</div>
+                    <h3 class="problem-title">体验糟糕</h3>
+                    <p class="problem-desc">
+                        中国直邮需要3-4周，无法退货，
+                        客服响应慢，缺乏真实产品评测。
+                    </p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🎲</div>
+                    <h3 class="problem-title">品质参差</h3>
+                    <p class="problem-desc">
+                        Amazon上85%的AI产品是低质量白牌货。
+                        找到优质产品需要专业知识，普通消费者难以辨别。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: 解决方案 -->
+    <section class="slide solution-slide">
+        <div class="slide-content">
+            <h2 class="slide-title solution-title">我们的解决方案</h2>
+            <div class="solution-visual">
+                <div class="supply-side">
+                    <h3 class="side-title">供应端</h3>
+                    <ul class="side-items">
+                        <li>🏭 深圳华强北工厂</li>
+                        <li>📦 1000+ AI产品池</li>
+                        <li>💰 50-70%成本优势</li>
+                        <li>🚀 每周上新产品</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-center">
+                    <h3>AI极客实验室</h3>
+                    <p style="margin-bottom: 20px;">精选AI硬件聚合平台</p>
+                    <div class="platform-features">
+                        <div class="feature-tag">✅ 质量测试</div>
+                        <div class="feature-tag">📹 视频评测</div>
+                        <div class="feature-tag">🚚 美国2日达</div>
+                        <div class="feature-tag">💬 专家支持</div>
+                        <div class="feature-tag">🔄 30天退货</div>
+                        <div class="feature-tag">⭐ 用户评价</div>
+                        <div class="feature-tag">🎯 AI推荐</div>
+                        <div class="feature-tag">💡 使用指南</div>
+                    </div>
+                </div>
+                
+                <div class="demand-side">
+                    <h3 class="side-title">需求端</h3>
+                    <ul class="side-items">
+                        <li>👨‍💻 科技早期采用者</li>
+                        <li>🎮 1300万+AI爱好者</li>
+                        <li>💼 商务专业人士</li>
+                        <li>🎓 学生与教育者</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: 市场机会 -->
+    <section class="slide market-slide">
+        <div class="slide-content">
+            <h2 class="slide-title market-title">市场机会</h2>
+            <div class="market-stats">
+                <div class="stat-card">
+                    <div class="stat-number">668亿</div>
+                    <div class="stat-label">2025年AI硬件市场（美元）</div>
+                    <div class="stat-detail">年复合增长率31.2%<br>预计2034年达到2963亿美元</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1300万+</div>
+                    <div class="stat-label">美国目标用户</div>
+                    <div class="stat-detail">科技早期采用者<br>积极寻找AI产品</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$150</div>
+                    <div class="stat-label">平均客单价</div>
+                    <div class="stat-detail">精选产品<br>50-60%毛利率</div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255, 170, 0, 0.1); border: 1px solid rgba(255, 170, 0, 0.3); border-radius: 20px; padding: 30px; text-align: center; margin-top: 40px;">
+                <h3 style="font-size: 28px; margin-bottom: 20px; color: #ffaa00;">为什么是现在？</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: left;">
+                    <div>
+                        <strong style="color: #ffaa00;">🎯 市场时机</strong>
+                        <p style="color: #999; margin-top: 10px;">AI硬件进入主流采用曲线</p>
+                    </div>
+                    <div>
+                        <strong style="color: #ffaa00;">📱 用户成熟</strong>
+                        <p style="color: #999; margin-top: 10px;">ChatGPT用户超2亿，寻求AI硬件</p>
+                    </div>
+                    <div>
+                        <strong style="color: #ffaa00;">🏭 供应链成熟</strong>
+                        <p style="color: #999; margin-top: 10px;">深圳生态系统产出优质AI硬件</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: 商业模式 -->
+    <section class="slide model-slide">
+        <div class="slide-content">
+            <h2 class="slide-title model-title">收入模式</h2>
+            <div class="revenue-streams">
+                <div class="revenue-card">
+                    <div class="revenue-icon">🛒</div>
+                    <div class="revenue-name">产品销售</div>
+                    <div class="revenue-percent">70%</div>
+                    <div class="revenue-desc">直销模式<br>50-60%毛利率</div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">🔄</div>
+                    <div class="revenue-name">订阅服务</div>
+                    <div class="revenue-percent">15%</div>
+                    <div class="revenue-desc">高级支持<br>抢先体验</div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">🤝</div>
+                    <div class="revenue-name">B2B销售</div>
+                    <div class="revenue-percent">10%</div>
+                    <div class="revenue-desc">企业批量采购</div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">📢</div>
+                    <div class="revenue-name">联盟营销</div>
+                    <div class="revenue-percent">5%</div>
+                    <div class="revenue-desc">佣金与赞助评测</div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(0, 168, 255, 0.1); border: 1px solid rgba(0, 168, 255, 0.3); border-radius: 20px; padding: 40px; margin-top: 40px;">
+                <h3 style="font-size: 24px; margin-bottom: 25px; color: #00a8ff; text-align: center;">单位经济模型</h3>
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; text-align: center;">
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #fff;">$150</div>
+                        <div style="font-size: 14px; color: #999;">客单价</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #fff;">$60</div>
+                        <div style="font-size: 14px; color: #999;">成本</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #fff;">$25</div>
+                        <div style="font-size: 14px; color: #999;">获客成本</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #00ff88;">$65</div>
+                        <div style="font-size: 14px; color: #999;">单笔利润</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 28px; font-weight: 700; color: #00ff88;">43%</div>
+                        <div style="font-size: 14px; color: #999;">净利率</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: 发展历程与规划 -->
+    <section class="slide traction-slide">
+        <div class="slide-content">
+            <h2 class="slide-title traction-title">发展历程与规划</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年Q3 - 验证阶段</div>
+                        <h3 class="timeline-title">市场调研与MVP</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">500+</div>
+                                <div class="metric-label">调研样本</div>
+                            </div>
+                            <div>
+                                <div class="metric">20款</div>
+                                <div class="metric-label">产品测试</div>
+                            </div>
+                            <div>
+                                <div class="metric">5万美元</div>
+                                <div class="metric-label">预售订单</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年Q4 - 正式上线</div>
+                        <h3 class="timeline-title">平台发布</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">100款</div>
+                                <div class="metric-label">精选产品</div>
+                            </div>
+                            <div>
+                                <div class="metric">20万美元</div>
+                                <div class="metric-label">月GMV</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026年Q2 - 规模化</div>
+                        <h3 class="timeline-title">A轮准备</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">100万美元</div>
+                                <div class="metric-label">月收入</div>
+                            </div>
+                            <div>
+                                <div class="metric">5万</div>
+                                <div class="metric-label">活跃用户</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2027年 - 愿景</div>
+                        <h3 class="timeline-title">品类领导者</h3>
+                        <div class="timeline-metrics">
+                            <div>
+                                <div class="metric">1亿美元</div>
+                                <div class="metric-label">年收入</div>
+                            </div>
+                            <div>
+                                <div class="metric">100万+</div>
+                                <div class="metric-label">用户数</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: 团队 -->
+    <section class="slide team-slide">
+        <div class="slide-content">
+            <h2 class="slide-title team-title">核心团队</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin: 60px 0;">
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">徐昊</h3>
+                    <p class="member-role">CEO & 联合创始人</p>
+                    <p class="member-bio">
+                        • 连续创业者，技术背景深厚<br>
+                        • 10年+AI与电商经验<br>
+                        • 深圳华强北供应链网络<br>
+                        • 负责战略规划与技术架构
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">徐铠</h3>
+                    <p class="member-role">COO & 联合创始人</p>
+                    <p class="member-bio">
+                        • 电商运营专家<br>
+                        • 精通用户增长与留存<br>
+                        • 客服体系搭建经验<br>
+                        • 负责日常运营管理
+                    </p>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 60px 0;">
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">郝赫然</h3>
+                    <p class="member-role">市场负责人</p>
+                    <p class="member-bio">
+                        • 品牌营销专家<br>
+                        • 社交媒体运营高手<br>
+                        • TikTok/YouTube增长<br>
+                        • 负责内容与品牌建设
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">张黎明</h3>
+                    <p class="member-role">供应链负责人</p>
+                    <p class="member-bio">
+                        • 10年+华强北供应链经验<br>
+                        • 精通AI硬件采购<br>
+                        • 管理100+供应商网络<br>
+                        • 负责产品选品与质控
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">小剑舅舅</h3>
+                    <p class="member-role">美国运营负责人</p>
+                    <p class="member-bio">
+                        • 美国本土物流仓储资源<br>
+                        • 15年+美国电商经验<br>
+                        • Target等线下渠道关系<br>
+                        • 负责2日达快速履约
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px; margin-top: 40px; text-align: center;">
+                <h3 style="font-size: 24px; margin-bottom: 20px;">支持团队</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div>
+                        <strong>技术团队</strong>
+                        <p style="color: #999; font-size: 14px;">5名AI工程师</p>
+                    </div>
+                    <div>
+                        <strong>客服团队</strong>
+                        <p style="color: #999; font-size: 14px;">美国本土3人</p>
+                    </div>
+                    <div>
+                        <strong>品控团队</strong>
+                        <p style="color: #999; font-size: 14px;">深圳2人</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: 竞争分析 -->
+    <section class="slide competition-slide">
+        <div class="slide-content">
+            <h2 class="slide-title competition-title">竞争优势</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>功能特点</th>
+                        <th>Amazon</th>
+                        <th>Gadget Flow</th>
+                        <th>品牌官网</th>
+                        <th>AI极客实验室</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AI专注</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>精选筛选</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>专家评测</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>美国2日达</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>价格优势</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>AI客服</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>社群运营</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 40px; padding: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 20px;">
+                <h3 style="font-size: 24px; margin-bottom: 20px; color: #00ff88;">我们的护城河</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div>
+                        <strong style="color: #00ff88;">🏭 供应链锁定</strong>
+                        <p style="color: #999; margin-top: 10px;">与深圳前20大AI硬件制造商独家合作</p>
+                    </div>
+                    <div>
+                        <strong style="color: #00ff88;">📊 数据优势</strong>
+                        <p style="color: #999; margin-top: 10px;">测试1000+产品形成的专有数据库</p>
+                    </div>
+                    <div>
+                        <strong style="color: #00ff88;">🎯 品牌信任</strong>
+                        <p style="color: #999; margin-top: 10px;">精选AI硬件的首选平台</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: 财务预测 -->
+    <section class="slide financial-slide">
+        <div class="slide-content">
+            <h2 class="slide-title financial-title">财务预测</h2>
+            <div class="financial-grid">
+                <div class="projection-chart">
+                    <h3 class="chart-title">收入增长（百万美元）</h3>
+                    <div class="chart-bars">
+                        <div class="bar" style="height: 20%;">
+                            <span class="bar-value">240万</span>
+                            <span class="bar-label">2025</span>
+                        </div>
+                        <div class="bar" style="height: 50%;">
+                            <span class="bar-value">1200万</span>
+                            <span class="bar-label">2026</span>
+                        </div>
+                        <div class="bar" style="height: 80%;">
+                            <span class="bar-value">3600万</span>
+                            <span class="bar-label">2027</span>
+                        </div>
+                        <div class="bar" style="height: 100%;">
+                            <span class="bar-value">7500万</span>
+                            <span class="bar-label">2028</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 24px; margin-bottom: 30px; color: #00ff88;">2027年关键指标</h3>
+                    <div class="key-metrics">
+                        <div class="metric-box">
+                            <div class="metric-value">3600万</div>
+                            <div class="metric-name">年收入（美元）</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">24万</div>
+                            <div class="metric-name">活跃客户</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">55%</div>
+                            <div class="metric-name">毛利率</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">25%</div>
+                            <div class="metric-name">EBITDA利润率</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                        <h4 style="font-size: 18px; margin-bottom: 15px;">盈利路径</h4>
+                        <ul style="list-style: none; color: #999; line-height: 1.8;">
+                            <li>✓ 首日即正向单位经济</li>
+                            <li>✓ 第18个月实现盈亏平衡</li>
+                            <li>✓ 第3年EBITDA利润率25%</li>
+                            <li>✓ 资本高效增长模式</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: 融资需求 -->
+    <section class="slide ask-slide">
+        <div class="slide-content">
+            <h2 class="slide-title ask-title">投资机会</h2>
+            
+            <div class="funding-box">
+                <div class="funding-amount">200万美元</div>
+                <div class="funding-stage">种子轮融资</div>
+            </div>
+            
+            <div class="use-of-funds">
+                <div class="fund-item">
+                    <div class="fund-percentage">35%</div>
+                    <div class="fund-category">库存采购</div>
+                    <div class="fund-details">首批产品库存<br>美国仓储建设</div>
+                </div>
+                <div class="fund-item">
+                    <div class="fund-percentage">30%</div>
+                    <div class="fund-category">市场营销</div>
+                    <div class="fund-details">获客投放<br>品牌建设</div>
+                </div>
+                <div class="fund-item">
+                    <div class="fund-percentage">25%</div>
+                    <div class="fund-category">技术开发</div>
+                    <div class="fund-details">平台开发<br>AI工具</div>
+                </div>
+                <div class="fund-item">
+                    <div class="fund-percentage">10%</div>
+                    <div class="fund-category">团队扩充</div>
+                    <div class="fund-details">技术与运营<br>关键岗位</div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1)); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 20px; padding: 40px; margin-top: 40px; text-align: center;">
+                <h3 style="font-size: 28px; margin-bottom: 25px;">预期回报</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #a855f7;">10倍</div>
+                        <div style="color: #999;">目标回报</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #a855f7;">2027年</div>
+                        <div style="color: #999;">B轮/退出</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: #a855f7;">2亿美元+</div>
+                        <div style="color: #999;">目标估值</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: 联系方式 -->
+    <section class="slide contact-slide">
+        <div class="slide-content">
+            <h2 class="thank-you">谢谢</h2>
+            <div class="contact-info">
+                <p>让我们一起打造AI硬件电商的未来</p>
+                <p style="margin-top: 30px;">
+                    📧 <a href="mailto:invest@one.optima.shop">invest@one.optima.shop</a><br>
+                    📱 +86 138-0000-0000<br>
+                    🌐 <a href="https://one.optima.shop">one.optima.shop</a>
+                </p>
+            </div>
+            <a href="mailto:invest@one.optima.shop" class="cta-button">预约会议</a>
+        </div>
+    </section>
+
+    <script>
+        // 简单的滚动指示器
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        // 添加幻灯片指示器
+        const indicators = document.createElement('div');
+        indicators.style.cssText = 'position: fixed; right: 30px; top: 50%; transform: translateY(-50%); z-index: 100;';
+        
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.style.cssText = `width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); margin: 10px 0; cursor: pointer; transition: all 0.3s;`;
+            dot.onclick = () => {
+                slides[index].scrollIntoView({ behavior: 'smooth' });
+            };
+            indicators.appendChild(dot);
+        });
+        
+        document.body.appendChild(indicators);
+        
+        // 更新活动指示器
+        const updateIndicators = () => {
+            const scrollPos = window.scrollY;
+            const windowHeight = window.innerHeight;
+            currentSlide = Math.round(scrollPos / windowHeight);
+            
+            indicators.childNodes.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.style.background = 'linear-gradient(90deg, #00ff88, #00a8ff)';
+                    dot.style.transform = 'scale(1.5)';
+                } else {
+                    dot.style.background = 'rgba(255,255,255,0.3)';
+                    dot.style.transform = 'scale(1)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', updateIndicators);
+        updateIndicators();
+    </script>
+</body>
+</html>

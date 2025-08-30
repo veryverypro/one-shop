@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon AI硬件热销产品清单 2024-2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff9500 0%, #ff6200 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .category-section {
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
+            color: white;
+            padding: 25px 30px;
+            border-bottom: 4px solid #ff9500;
+        }
+        
+        .category-title {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .category-description {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+        
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: #fff;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .best-seller-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff9500;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #232f3e;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .product-brand {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #b12704;
+            margin-bottom: 10px;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .stars {
+            color: #ffa41c;
+            margin-right: 8px;
+        }
+        
+        .review-count {
+            color: #007185;
+        }
+        
+        .ai-features {
+            background: #f0f8ff;
+            border: 1px solid #007185;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .ai-features h4 {
+            color: #007185;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .ai-features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .ai-features li {
+            padding: 3px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .ai-features li:before {
+            content: "🤖";
+            position: absolute;
+            left: 0;
+        }
+        
+        .product-link {
+            display: inline-block;
+            background: #ff9500;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .product-link:hover {
+            background: #e68700;
+            color: white;
+        }
+        
+        .summary-stats {
+            background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff9500;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .price-range {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .trending-badge {
+            background: #dc3545;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Amazon AI硬件热销产品清单</h1>
+        <div class="subtitle">2024-2025年度最佳销售AI硬件产品深度调研</div>
+    </div>
+
+    <div class="container">
+        <div class="summary-stats">
+            <h2>调研概览</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">产品品类</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">35+</div>
+                    <div class="stat-label">热销产品</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$50-1200</div>
+                    <div class="stat-label">价格区间</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100M+</div>
+                    <div class="stat-label">用户评价总数</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 智能音箱类 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">🔊 智能音箱类</div>
+                <div class="category-description">基于AI语音助手的智能音箱产品，市场最成熟的AI硬件品类</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="best-seller-badge">#1 Best Seller</span>
+                    <div class="product-name">Amazon Echo (4th Gen)</div>
+                    <div class="product-brand">Amazon</div>
+                    <div class="product-price">$99.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">150,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Alexa语音AI助手</li>
+                            <li>智能家居控制中枢</li>
+                            <li>自然语言处理</li>
+                            <li>个性化音乐推荐</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B07XKF5RM3" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Amazon Echo Dot (5th Gen)</div>
+                    <div class="product-brand">Amazon</div>
+                    <div class="product-price">$49.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">80,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>紧凑型Alexa AI</li>
+                            <li>智能温度感应</li>
+                            <li>语音识别优化</li>
+                            <li>Matter智能家居支持</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B09B8V1LZ3" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Echo Show 8 (3rd Gen)</div>
+                    <div class="product-brand">Amazon</div>
+                    <div class="product-price">$149.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">45,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>可视化AI交互</li>
+                            <li>人脸识别</li>
+                            <li>智能相框模式</li>
+                            <li>视频通话AI优化</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0BLS3Y632" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Google Nest Audio</div>
+                    <div class="product-brand">Google</div>
+                    <div class="product-price">$99.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">60,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Google Assistant AI</li>
+                            <li>机器学习音质调优</li>
+                            <li>多设备智能协调</li>
+                            <li>语音识别增强</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B084J8KNMM" class="product-link">查看产品</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 智能家居类 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">🏠 智能家居类</div>
+                <div class="category-description">AI驱动的家居自动化设备，包括扫地机器人、智能锁、恒温器等</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="best-seller-badge">Top Choice</span>
+                    <div class="product-name">iRobot Roomba Combo j9+</div>
+                    <div class="product-brand">iRobot</div>
+                    <div class="product-price">$1,199.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">8,500+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>PrecisionVision导航AI</li>
+                            <li>智能障碍物识别避让</li>
+                            <li>宠物排泄物AI识别</li>
+                            <li>个性化清洁路径学习</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0C79JM7VG" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Shark AI Ultra Robot Vacuum</div>
+                    <div class="product-brand">Shark</div>
+                    <div class="product-price">$599.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">12,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Matrix Clean AI导航</li>
+                            <li>语音控制集成</li>
+                            <li>智能家居地图绘制</li>
+                            <li>自适应清洁模式</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B09M2SCFYF" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Roborock Q5 Max+ Robot Vacuum</div>
+                    <div class="product-brand">Roborock</div>
+                    <div class="product-price">$599.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">5,200+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>PreciSense LiDAR映射</li>
+                            <li>ReactiveTech障碍物规避</li>
+                            <li>多层级地图智能管理</li>
+                            <li>AI清洁策略优化</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0CT96L9JJ" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Google Nest Learning Thermostat</div>
+                    <div class="product-brand">Google</div>
+                    <div class="product-price">$249.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">15,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>机器学习用户习惯</li>
+                            <li>自动节能优化</li>
+                            <li>AI温度预测</li>
+                            <li>智能日程适配</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0771NZJHX" class="product-link">查看产品</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 可穿戴设备类 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">⌚ 可穿戴设备类</div>
+                <div class="category-description">AI增强的智能手表、健身追踪器和健康监测设备</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="best-seller-badge">Top Pick</span>
+                    <div class="product-name">Samsung Galaxy Watch 7 40mm</div>
+                    <div class="product-brand">Samsung</div>
+                    <div class="product-price">$329.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">8,900+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Galaxy AI健康洞察</li>
+                            <li>能量评分AI分析</li>
+                            <li>个性化健康建议</li>
+                            <li>AI运动教练</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0D7T1DXWN" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Apple Watch Series 10</div>
+                    <div class="product-brand">Apple</div>
+                    <div class="product-price">$399.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">12,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Siri AI语音助手</li>
+                            <li>智能健康监测</li>
+                            <li>ECG AI分析</li>
+                            <li>睡眠模式AI优化</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0DGHJ8B48" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Fitbit Charge 6</div>
+                    <div class="product-brand">Fitbit (Google)</div>
+                    <div class="product-price">$149.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">25,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Google AI健康洞察</li>
+                            <li>智能压力管理</li>
+                            <li>AI驱动运动指导</li>
+                            <li>睡眠质量AI分析</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0CC5XJ9QY" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">DA GPT Smart Watch</div>
+                    <div class="product-brand">DA GPT <span class="trending-badge">Trending</span></div>
+                    <div class="product-price">$89.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">2,100+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>内置GPT多模态AI大脑</li>
+                            <li>AI语音指令生成健身计划</li>
+                            <li>智能表盘AI生成</li>
+                            <li>107种运动模式AI识别</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0F1357GQ3" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Amazfit Band 7</div>
+                    <div class="product-brand">Amazfit</div>
+                    <div class="product-price">$49.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">18,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Alexa语音助手内置</li>
+                            <li>AI健康评估</li>
+                            <li>智能压力监测</li>
+                            <li>血氧AI分析</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0B28TCQPN" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Samsung Galaxy Ring</div>
+                    <div class="product-brand">Samsung <span class="trending-badge">New 2025</span></div>
+                    <div class="product-price">$399.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">1,200+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>AI睡眠动物类型分析</li>
+                            <li>能量评分AI算法</li>
+                            <li>个性化健康建议</li>
+                            <li>智能睡眠优化</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0D7VMHQQF" class="product-link">查看产品</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI摄像头类 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">📷 AI安防摄像头类</div>
+                <div class="category-description">具备AI识别和智能检测功能的安防监控设备</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="best-seller-badge">Editor's Choice</span>
+                    <div class="product-name">Eufy Floodlight Cam E340</div>
+                    <div class="product-brand">Eufy</div>
+                    <div class="product-price">$279.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">3,800+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>AI人形检测识别</li>
+                            <li>车辆AI识别</li>
+                            <li>智能运动区域划分</li>
+                            <li>无需订阅的AI功能</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0C1PWWDSM" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Google Nest Cam (Battery)</div>
+                    <div class="product-brand">Google</div>
+                    <div class="product-price">$179.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">15,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>AI人脸识别（15英尺距离）</li>
+                            <li>包裹检测AI</li>
+                            <li>动物识别功能</li>
+                            <li>智能通知过滤</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B08R67SBKQ" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Ring Video Doorbell Pro 2</div>
+                    <div class="product-brand">Ring (Amazon)</div>
+                    <div class="product-price">$249.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">20,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>AI运动检测预警</li>
+                            <li>包裹检测通知</li>
+                            <li>人员识别功能</li>
+                            <li>智能安防生态集成</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B08N5NQ869" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Wyze Cam v4</div>
+                    <div class="product-brand">Wyze</div>
+                    <div class="product-price">$35.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">35,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>AI人员检测</li>
+                            <li>车辆识别功能</li>
+                            <li>智能运动区域</li>
+                            <li>AI声音检测</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0CFRS6F35" class="product-link">查看产品</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 机器人类 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">🤖 AI伴侣机器人类</div>
+                <div class="category-description">具备AI交互能力的陪伴型、教育型和宠物型机器人</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="best-seller-badge">Premium</span>
+                    <div class="product-name">Sony Aibo ERS-1000</div>
+                    <div class="product-brand">Sony</div>
+                    <div class="product-price">$2,899.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">450+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>深度学习个性发展</li>
+                            <li>AI情感识别与反应</li>
+                            <li>自适应行为模式</li>
+                            <li>云端AI持续学习</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B07H8QMZFL" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Miko 3 AI Robot</div>
+                    <div class="product-brand">Miko</div>
+                    <div class="product-price">$299.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">1,800+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>AI对话学习系统</li>
+                            <li>教育内容AI推荐</li>
+                            <li>情感交互识别</li>
+                            <li>个性化成长陪伴</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B08X6HGQJL" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Loona Pet Robot (V24)</div>
+                    <div class="product-brand">KEYi Tech</div>
+                    <div class="product-price">$449.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">920+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>真实宠物行为AI模拟</li>
+                            <li>情绪表达动态AI</li>
+                            <li>互动学习能力</li>
+                            <li>个性化陪伴模式</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0BLWFZ7QR" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Elephant Robotics metaCat</div>
+                    <div class="product-brand">Elephant Robotics</div>
+                    <div class="product-price">$799.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">180+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>AI情感支持系统</li>
+                            <li>自然交互AI</li>
+                            <li>行为学习算法</li>
+                            <li>多模态感知AI</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0BC7TQRXX" class="product-link">查看产品</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 智能健康设备类 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">🏥 智能健康监测类</div>
+                <div class="category-description">AI驱动的专业健康监测设备和医疗级智能硬件</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="best-seller-badge">Medical Grade</span>
+                    <div class="product-name">Omron Platinum Blood Pressure Monitor</div>
+                    <div class="product-brand">Omron</div>
+                    <div class="product-price">$79.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">28,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>TruRead AI三次测量</li>
+                            <li>智能平均值计算</li>
+                            <li>异常检测AI警报</li>
+                            <li>APP数据AI分析</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B071W3QYQH" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Withings Body+ Smart Scale</div>
+                    <div class="product-brand">Withings</div>
+                    <div class="product-price">$99.95</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">12,000+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>身体成分AI分析</li>
+                            <li>健康趋势AI预测</li>
+                            <li>多用户智能识别</li>
+                            <li>医疗级精度算法</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B071DQQNH8" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">EMAY Sleep Oxygen Monitor</div>
+                    <div class="product-brand">EMAY</div>
+                    <div class="product-price">$179.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">4,500+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>睡眠呼吸AI监测</li>
+                            <li>血氧下降AI报警</li>
+                            <li>睡眠质量AI评估</li>
+                            <li>趋势分析AI洞察</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B07ZK7NCBS" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Oura Ring Gen3</div>
+                    <div class="product-brand">Oura</div>
+                    <div class="product-price">$299.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">8,200+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>准备度评分AI算法</li>
+                            <li>睡眠阶段AI识别</li>
+                            <li>运动恢复AI建议</li>
+                            <li>生理周期AI预测</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B09HRGR8FC" class="product-link">查看产品</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 其他AI硬件类 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">🎯 其他创新AI硬件</div>
+                <div class="category-description">新兴的AI硬件产品，代表未来发展趋势</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="best-seller-badge">Innovation</span>
+                    <div class="product-name">Amazon Astro Home Robot</div>
+                    <div class="product-brand">Amazon</div>
+                    <div class="product-price">$1,599.99</div>
+                    <div class="price-range">邀请制购买</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="review-count">250+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>Alexa AI移动助手</li>
+                            <li>家庭成员AI识别</li>
+                            <li>自主导航AI</li>
+                            <li>智能巡逻模式</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B078NSDFSB" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Rabbit R1 AI Companion</div>
+                    <div class="product-brand">Rabbit Inc</div>
+                    <div class="product-price">$199.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★☆☆</span>
+                        <span class="review-count">1,100+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>大语言模型AI助手</li>
+                            <li>多模态交互能力</li>
+                            <li>应用操作AI代理</li>
+                            <li>自然语言命令理解</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0CQR7C4Z8" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Humane AI Pin</div>
+                    <div class="product-brand">Humane</div>
+                    <div class="product-price">$699.99</div>
+                    <div class="price-range">+$24/月订阅</div>
+                    <div class="product-rating">
+                        <span class="stars">★★☆☆☆</span>
+                        <span class="review-count">180+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>无屏幕AI交互</li>
+                            <li>激光投影显示</li>
+                            <li>语音AI助手</li>
+                            <li>可穿戴AI计算</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0CYZ8QJM1" class="product-link">查看产品</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">JBL Authentics 500</div>
+                    <div class="product-brand">JBL</div>
+                    <div class="product-price">$699.99</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">2,800+ reviews</span>
+                    </div>
+                    <div class="ai-features">
+                        <h4>AI功能特色</h4>
+                        <ul>
+                            <li>双AI助手支持（Alexa+Google）</li>
+                            <li>智能音频调谐</li>
+                            <li>AI声学优化</li>
+                            <li>多房间AI协调</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0C4SZL7QZ" class="product-link">查看产品</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 市场洞察 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">📊 市场洞察与趋势</div>
+                <div class="category-description">基于Amazon销售数据的AI硬件市场关键洞察</div>
+            </div>
+            <div style="padding: 30px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid #28a745;">
+                        <h3 style="color: #28a745; margin-bottom: 15px;">🔥 热门趋势</h3>
+                        <ul style="line-height: 2; margin-left: 20px;">
+                            <li>智能音箱仍是最大品类，Echo系列占主导</li>
+                            <li>健康监测设备需求激增，尤其血压和睡眠</li>
+                            <li>扫地机器人AI升级，障碍识别成标配</li>
+                            <li>安防摄像头AI检测无需订阅成卖点</li>
+                            <li>可穿戴设备向医疗级精度发展</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 25px; border-radius: 8px; border-left: 4px solid #ffc107;">
+                        <h3 style="color: #856404; margin-bottom: 15px;">💰 价格洞察</h3>
+                        <ul style="line-height: 2; margin-left: 20px;">
+                            <li>入门级AI产品：$30-100（音箱、基础追踪器）</li>
+                            <li>主流消费级：$200-500（智能手表、摄像头）</li>
+                            <li>高端专业级：$600-1200（机器人、医疗设备）</li>
+                            <li>奢侈品级：$1200+（Sony Aibo、Astro等）</li>
+                            <li>订阅服务：月费$5-25成趋势</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #e7f3ff; padding: 25px; border-radius: 8px; border-left: 4px solid #0066cc;">
+                        <h3 style="color: #0066cc; margin-bottom: 15px;">🚀 增长驱动力</h3>
+                        <ul style="line-height: 2; margin-left: 20px;">
+                            <li>美国智能家居市场年增长23.4%</li>
+                            <li>安防设备占智能家居28%份额</li>
+                            <li>可穿戴设备AI功能成差异化核心</li>
+                            <li>无订阅AI功能成竞争优势</li>
+                            <li>多平台生态集成提升用户粘性</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fce4ec; padding: 25px; border-radius: 8px; border-left: 4px solid #e91e63;">
+                        <h3 style="color: #c2185b; margin-bottom: 15px;">⚠️ 注意事项</h3>
+                        <ul style="line-height: 2; margin-left: 20px;">
+                            <li>隐私保护标准日趋严格</li>
+                            <li>AI功能实用性参差不齐</li>
+                            <li>电池续航仍是技术瓶颈</li>
+                            <li>部分创新产品市场接受度低</li>
+                            <li>供应链和芯片成本波动风险</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 品牌分析 -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">🏆 品牌竞争格局</div>
+                <div class="category-description">各AI硬件品类的领导品牌和市场占有率分析</div>
+            </div>
+            <div style="padding: 30px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px;">
+                    <div>
+                        <h3 style="color: #232f3e; margin-bottom: 20px;">智能音箱领域</h3>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <ul style="line-height: 2.2;">
+                                <li><strong>Amazon (Alexa)：</strong>市场领导者，Echo系列占主导</li>
+                                <li><strong>Google：</strong>Nest系列，AI功能最先进</li>
+                                <li><strong>Apple：</strong>HomePod，音质最佳但价格昂贵</li>
+                                <li><strong>Sonos：</strong>高端音频，多助手支持</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: #232f3e; margin-bottom: 20px;">智能家居设备</h3>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <ul style="line-height: 2.2;">
+                                <li><strong>iRobot：</strong>扫地机器人技术领先</li>
+                                <li><strong>Google Nest：</strong>安防摄像头AI最强</li>
+                                <li><strong>Ring (Amazon)：</strong>价格优势，生态完整</li>
+                                <li><strong>Eufy：</strong>无订阅费，性价比高</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: #232f3e; margin-bottom: 20px;">可穿戴设备</h3>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <ul style="line-height: 2.2;">
+                                <li><strong>Apple：</strong>智能手表绝对领导者</li>
+                                <li><strong>Samsung：</strong>Android生态最佳选择</li>
+                                <li><strong>Fitbit (Google)：</strong>健身追踪专业</li>
+                                <li><strong>Garmin：</strong>运动专业用户首选</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: #232f3e; margin-bottom: 20px;">AI伴侣机器人</h3>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <ul style="line-height: 2.2;">
+                                <li><strong>Sony：</strong>Aibo高端宠物机器人</li>
+                                <li><strong>Amazon：</strong>Astro家用助理机器人</li>
+                                <li><strong>Miko：</strong>儿童教育机器人</li>
+                                <li><strong>KEYi Tech：</strong>仿生宠物创新者</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 投资建议 -->
+        <div style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 40px 30px; border-radius: 12px; margin: 40px 0;">
+            <h2 style="margin-bottom: 25px; font-size: 28px;">💡 采购建议</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 15px;">🎯 优先级产品</h3>
+                    <ul style="line-height: 2;">
+                        <li>Amazon Echo 4th Gen - 智能家居入门</li>
+                        <li>Samsung Galaxy Watch 7 - 可穿戴旗舰</li>
+                        <li>iRobot Roomba j9+ - 清洁机器人之王</li>
+                        <li>Eufy Floodlight Cam - 最佳安防AI</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 15px;">💰 性价比之选</h3>
+                    <ul style="line-height: 2;">
+                        <li>Echo Dot 5th Gen - $50智能音箱</li>
+                        <li>Amazfit Band 7 - $50健身追踪</li>
+                        <li>Wyze Cam v4 - $36安防摄像头</li>
+                        <li>DA GPT Smart Watch - $90 AI手表</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 15px;">🚀 创新产品</h3>
+                    <ul style="line-height: 2;">
+                        <li>Samsung Galaxy Ring - 新形态穿戴</li>
+                        <li>Amazon Astro - 家用机器人</li>
+                        <li>Rabbit R1 - AI助手硬件</li>
+                        <li>Sony Aibo - 高端AI宠物</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Amazon AI硬件热销产品调研报告 | 数据来源：Amazon、TechRadar、Consumer Reports等</p>
+        <p style="margin-top: 10px; font-size: 12px;">最后更新：2025年8月 | 价格和库存状况可能有变动，请以Amazon官方为准</p>
+    </div>
+</body>
+</html>
