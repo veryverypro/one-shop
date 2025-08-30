@@ -358,17 +358,19 @@
         }
         
         .action-week {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-radius: 8px;
-            backdrop-filter: blur(10px);
+            color: #1a1a1a;
         }
         
         .week-title {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
-            color: #fff;
+            color: #002856;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 8px;
         }
         
         .action-list {
@@ -381,14 +383,15 @@
             position: relative;
             font-size: 14px;
             line-height: 1.5;
-            opacity: 0.9;
+            color: #333;
         }
         
         .action-list li::before {
             content: '▸';
             position: absolute;
             left: 0;
-            color: #4fc3f7;
+            color: #004080;
+            font-weight: bold;
         }
         
         .footer {
